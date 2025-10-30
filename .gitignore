@@ -1,0 +1,4 @@
+.output
+.arri
+node_modules
+rpc_client.gen.ts
