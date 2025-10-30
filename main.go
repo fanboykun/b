@@ -27,6 +27,7 @@ func main() {
 	// register procedures on the app
 	arri.Rpc(&app, SayHello, arri.RpcOptions{})
 	arri.Rpc(&app, SayGoodbye, arri.RpcOptions{})
+	arri.Rpc(&app, SayOke, arri.RpcOptions{})
 
 	err := app.Run(arri.RunOptions{Port: 3000})
 	if err != nil {
@@ -48,4 +49,8 @@ func SayHello(params GreetingParams, event RpcEvent) (GreetingResponse, arri.Rpc
 
 func SayGoodbye(params GreetingParams, event RpcEvent) (GreetingResponse, arri.RpcError) {
 	return GreetingResponse{Message: fmt.Sprintf("Goodbye %s", params.Name)}, nil
+}
+
+func SayOke(params GreetingParams, event RpcEvent) (GreetingResponse, arri.RpcError) {
+	return GreetingResponse{Message: fmt.Sprintf("Oke %s", params.Name)}, nil
 }
