@@ -3,12 +3,14 @@ name: Generate and Deploy RPC Client
 on:
   push:
     branches:
+      - master
       - main
+  workflow_dispatch:
 
 jobs:
   generate-and-deploy-client:
+    name: Generate and Deploy RPC Client
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout backend repository
         uses: actions/checkout@v4
